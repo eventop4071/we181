@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "LandingPage": {
+      "title": "Landing Page Content",
+      "description": "Structure for the church landing page content",
+      "type": "object",
+      "properties": {
+        "hero": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "subtitle": { "type": "string" },
+            "imageUrl": { "type": "string" },
+            "youtubeUrl": { "type": "string" },
+            "links": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": { "type": "string" },
+                  "url": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "prayerForest": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "url": { "type": "string" },
+            "active": { "type": "boolean" }
+          }
+        },
+        "monthly181": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "url": { "type": "string" },
+            "active": { "type": "boolean" }
+          }
+        },
+        "generalInfo": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": { "type": "string" },
+              "content": { "type": "string" }
+            }
+          }
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Admin": {
+      "title": "Admin User",
+      "description": "Authorized administrator",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "userId": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/config/landingPage": {
+      "schema": "LandingPage",
+      "description": "Main landing page configuration"
+    },
+    "/admins/{userId}": {
+      "schema": "Admin",
+      "description": "Admin privileges"
+    }
+  }
+}
